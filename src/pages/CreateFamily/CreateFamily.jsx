@@ -56,9 +56,9 @@ function CreateFamily() {
             <Navbar />
             <div className="form-createtask-container">
             <h2 className="text-h2">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-            <h3 className="text-h3">Welcome to <span className="app-name">Kiddie tasks hero</span>!</h3>
+            <h3 className="text-h3">Welcome to <span className="convert-to-red">Kiddie Tasks Heroes</span>!</h3>
 
-            <h3 className="text-h3">Now you can:</h3>
+            <h3 className="text-h3 space">Now you can:</h3>
 
             {
                 (user.role === "Parent") && /* with this "middleware" we can avoid users under 18 to create a new family */
