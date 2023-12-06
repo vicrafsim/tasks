@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from "../../context/auth.context";
 import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
+import "./SubmitWeek.css"
 function SubmitWeek() {
   const { user, family, setUser } = useContext(AuthContext);
   const [familyMember, setFamilyMember] = useState([]);
@@ -18,14 +18,14 @@ function SubmitWeek() {
 
   const CalculateKpiFamily = async () => {
     try {
-      if(tasksDoneByFamily || tasksByFamily){
+      if (tasksDoneByFamily || tasksByFamily) {
         const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
         const roundedKpiFamily = kpiFamily.toFixed(2);
-  
-  
+
+
         setkpiByFamily(roundedKpiFamily)
-        
-      }else{
+
+      } else {
         setkpiByFamily("loading")
       }
 
@@ -42,47 +42,52 @@ function SubmitWeek() {
       setTasksByFamily(familyTasksResponseJson.tasksByFamily)
       setTasksDoneByFamily(familyTasksResponseJson.tasksDoneByFamily)
       setTasksPendingByFamily(familyTasksResponseJson.tasksPendingByFamily)
-      
+
     } catch (error) {
       console.error(error);
     }
   }
-  
-  
+
+
   useEffect(() => {
     getTasksbyFamily();
   }, []);
 
   useEffect(() => {
     CalculateKpiFamily();
-    
-  }, [tasksDoneByFamily,tasksByFamily]);
+
+  }, [tasksDoneByFamily, tasksByFamily]);
 
   return (
     <>
       <Navbar />
       <div className='form-createtask-container'>
-        <h2 className='text-h2'>🎓 Weekly Score 🎓</h2>
+        <h2 className='text-h2'>Weekly Score</h2>
 
-        {<img width="60px" src={family.familyPicture} alt="Family" />}
+        {/* {<img width="60px" src={family.familyPicture} alt="Family" />} */}
+        <div className="performance">
 
-        <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {family.familyName} family performance : </p>
+          <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {family.familyName} family performance : </p>
 
-        <p className="text-p"> <i class="fa-solid fa-clipboard"></i> {tasksByFamily} Tasks weekly</p>
-        <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done</p>
-        <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByFamily} tasks pending</p>
-        <p className="text-p"> <i class="fa-solid fa-gauge"></i> Family KPI: {kpiByFamily} %</p>
+          <p className="text-p"> <i class="fa-solid fa-clipboard"></i> {tasksByFamily} Tasks weekly</p>
+          <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done</p>
+          <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByFamily} tasks pending</p>
+          <p className="text-p"> <i class="fa-solid fa-gauge"></i> Family KPI: {kpiByFamily} %</p>
+        </div>
+        <div className="performance">
 
-        <img width="60px" src={user.userPicture} alt={user.name} />
-        <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
+          <img src={user.userPicture} alt={user.name} />
+          <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
 
-        <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
-        <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
-        <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
+          <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
+          <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
+          <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
+
+        </div>
 
 
       </div>
-      <Footer/>
+
     </>
   );
 }
