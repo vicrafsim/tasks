@@ -21,20 +21,15 @@ function SubmitWeek() {
       if (tasksDoneByFamily || tasksByFamily) {
         const kpiFamily = (tasksDoneByFamily / tasksByFamily) * 100;
         const roundedKpiFamily = kpiFamily.toFixed(2);
-
-
         setkpiByFamily(roundedKpiFamily)
-
       } else {
         setkpiByFamily("loading")
       }
-
     }
     catch (error) {
       console.error(error);
     }
   }
-
   const getTasksbyFamily = async () => {
     try {
       const familyTasksResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/tasks/${family._id}/tasksByFamily`);
@@ -63,31 +58,21 @@ function SubmitWeek() {
       <Navbar />
       <div className='form-createtask-container'>
         <h2 className='text-h2'>Weekly Score</h2>
-
-        {/* {<img width="60px" src={family.familyPicture} alt="Family" />} */}
         <div className="performance">
-
-          <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {family.familyName} family performance : </p>
-
-          <p className="text-p"> <i class="fa-solid fa-clipboard"></i> {tasksByFamily} Tasks weekly</p>
-          <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByFamily} tasks done</p>
-          <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByFamily} tasks pending</p>
-          <p className="text-p"> <i class="fa-solid fa-gauge"></i> Family KPI: {kpiByFamily} %</p>
+          <p className="text-p"> <i class="fa-solid fa-chart-simple icon"></i> {family.familyName} family performance : </p>
+          <p className="text-p"> <i class="fa-solid fa-clipboard icon"></i> {tasksByFamily} Tasks weekly</p>
+          <p className="text-p"> <i class="fa-solid fa-check icon"></i> {tasksDoneByFamily} tasks done</p>
+          <p className="text-p"> <i class="fa-solid fa-hourglass icon"></i> {tasksPendingByFamily} tasks pending</p>
+          <p className="text-p"> <i class="fa-solid fa-gauge icon"></i> Family KPI: {kpiByFamily} %</p>
         </div>
         <div className="performance">
-
-          <img src={user.userPicture} alt={user.name} />
-          <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
-
-          <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
-          <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
-          <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
-
+          <img className="img" src={user.userPicture} alt={user.name} />
+          <p className="text-p"> <i class="fa-solid fa-chart-simple icon"></i> {user.name}, your personal score: </p>
+          <p className="text-p"> <i class="fa-solid fa-check icon"></i> {tasksDoneByUser} tasks done</p>
+          <p className="text-p"> <i class="fa-solid fa-hourglass icon"></i> {tasksPendingByUser} tasks pending</p>
+          <p className="text-p"> <i class="fa-solid fa-gauge icon"></i>  User KPI: {kpiByUser} %</p>
         </div>
-
-
       </div>
-
     </>
   );
 }
