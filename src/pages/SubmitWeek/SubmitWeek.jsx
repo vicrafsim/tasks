@@ -68,24 +68,12 @@ function SubmitWeek() {
           <p className="text-p"> <i class="fa-solid fa-gauge"></i> Family KPI: {kpiByFamily} %</p>
         </div>
         <div className="performance">
-<<<<<<< HEAD
-
-          <img src={user.userPicture} alt={user.name} />
-          <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
-
-        <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
-        <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
-        <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
-
-
-=======
           <img className="img" src={user.userPicture} alt={user.name} />
           <p className="text-p"> <i class="fa-solid fa-chart-simple icon"></i> {user.name}, your personal score: </p>
           <p className="text-p"> <i class="fa-solid fa-check icon"></i> {tasksDoneByUser} tasks done</p>
           <p className="text-p"> <i class="fa-solid fa-hourglass icon"></i> {tasksPendingByUser} tasks pending</p>
           <p className="text-p"> <i class="fa-solid fa-gauge icon"></i>  User KPI: {kpiByUser} %</p>
         </div>
->>>>>>> 9e3b173888e6fb1c99d85219bc92110b780031bf
       </div>
     </>
   );
