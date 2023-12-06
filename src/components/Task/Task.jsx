@@ -77,7 +77,7 @@ function Task(props) {
       <p className="text-p text-center">{props.taskAssignedTo.name}</p>
 
       
-      {//user.role === "Parent" &&
+      {user.role === "Parent" &&
       <>
       <span>|</span>
       <button class="btn-icon" onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
