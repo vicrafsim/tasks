@@ -76,11 +76,13 @@ function SubmitWeek() {
         <img width="60px" src={user.userPicture} alt={user.name} />
         <p className="text-p"> <i class="fa-solid fa-chart-simple"></i> {user.name}, your personal score: </p>
 
-        <p className="text-p"> <i class="fa-solid fa-check"></i> {tasksDoneByUser} tasks done</p>
-        <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {tasksPendingByUser} tasks pending</p>
-        <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {kpiByUser} %</p>
-
-
+        <p className="text-p"> <i class="fa-solid fa-check"></i> {/* {tasksDoneByUser} */} ¿? tasks done</p>
+        <p className="text-p"> <i class="fa-solid fa-hourglass"></i> {/* {tasksPendingByUser} */} ¿?tasks pending</p>
+        <p className="text-p"> <i class="fa-solid fa-gauge"></i>  User KPI: {/* {kpiByUser} */} ¿? %</p>
+        
+        <button>Reset Week</button>
+        <br />
+        <p>* The Personal Scoring and Reset Week is not included in a free version</p>
       </div>
     </>
   );
