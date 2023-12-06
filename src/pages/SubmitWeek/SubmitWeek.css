@@ -1,0 +1,16 @@
+.performance{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+.img{
+    width: 100px;
+    margin: 20px 0;
+}
+.icon{
+    color: #ff6c52;
+    margin-right: 4px;
+}

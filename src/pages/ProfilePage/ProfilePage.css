@@ -1,9 +1,48 @@
-.profile-page-container{
+
+.user-profile-pic{
+height: 200px;
+width: 200px;
+border-radius: 50%;
+object-fit: cover;
+}
+
+
+.user-profile-container{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+
+}
+
+.family-container{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 5px;
 }
-.text-profile{
-    margin: 10px;
+.family-members-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
 }
+
+.fa-envelope{
+
+    color: blue;
+}
+.upload > input[type-file]{
+    background-color: blue;
+}
+input[type=file]::file-selector-button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #1408c2;
+    color: white;
+    transition: 1s;
+  }

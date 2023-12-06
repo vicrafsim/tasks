@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
-
+import Footer from "../../components/Footer/Footer";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,26 +47,28 @@ function LoginPage() {
 
   return (
     <div className="login-page">
+      <br></br>
+      <br></br>
       <h1>Login</h1>
-
       <form className="form-container" onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input className="input" type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
         <input
+          className="input"
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit" className="btn-navbar"><i class="fa-solid fa-user-lock"></i></button>
+        <button type="submit" className="btn-icon"><i className="fa-solid fa-user-lock"></i></button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don{"'"}t have an account yet?</p>
+      <p className="text-p">Don{"'"}t have an account yet?</p>
       <Link to={"/signup"}> Sign Up</Link>
+      <Footer/>
     </div>
   );
 }

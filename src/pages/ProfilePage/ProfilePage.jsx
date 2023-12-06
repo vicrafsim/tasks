@@ -5,12 +5,12 @@ import { AuthContext } from "../../context/auth.context";
 import { useContext } from "react";
 import { useEffect } from "react";
 import service from "../../services/file-upload.service";
+import Navbar from "../../components/Navbar/Navbar";
 
 function ProfilePage() {
   const [familyMember, setfamilyMember] = useState([])
   const { user, family, setUser } = useContext(AuthContext);
   const [imageUrl, setImageUrl] = useState(user.userPicture);
-
   const getFamilyId = async (event) => {
     try {
       const familyMembersResponse = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/familymembers/${family._id}`)
@@ -22,59 +22,55 @@ function ProfilePage() {
   useEffect(() => {
     getFamilyId()
   }, [imageUrl])
-
-
-  // ******** this method handles the file upload ********
   const handleFileUpload = (e) => {
-    /* console.log("The file to be uploaded is: ", e.target.files[0]); */
     const uploadData = new FormData();
-    // imageUrl => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new movie in '/api/movies' POST route
     uploadData.append("userPicture", e.target.files[0]);
-    uploadData.append("userId", user._id); // Adding el userId al FormData   
-    /* console.log("userId", user._id); */
+    uploadData.append("userId", user._id);
     service
       .uploadUserImage(uploadData)
       .then(response => {
-        /* console.log("response is: ", response); */
-        // response carries "fileUrl" which we can use to update the state
         setImageUrl(response.fileUrl);
         setUser({ ...user, userPicture: response.fileUrl })
       })
       .catch(err => console.log("Error while uploading the file: ", err));
   };
-
-
-
   return (
-    <div>
-      {console.log(user, family)}
-      <h2 className="text-profile">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-      
-      <img src={user.userPicture} alt={user.name} />
-      <h3 className="text-profile">These are the members of the {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h3>
-      <div className="profile-page-container">
-      {console.log("text", user.userPicture)}
-      <h1>Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h1>
-      <img src={imageUrl} alt={user.name} />
-      <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
-      <h1> {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} family: </h1>
-      <p> Your Family Code: {family.familyCode} </p>
-      <img width="150px" src={family.familyPicture} alt="Family" />
-      <div className="family-member-container">
-        {familyMember.map((eachFamilyMember, index) => {
-          return (
-            <FamilyMember
-              key={eachFamilyMember._id}
-              img={eachFamilyMember.userPicture}
-              name={eachFamilyMember.name}
-              age={eachFamilyMember.age}
-            />)
-        })
-        }
+    <>
+      <Navbar />
+      <div className="form-createtask-container">
+        <div className="user-profile-container">
+          <h2 className="text-h2">Hello <span className="convert-to-red">{user.name.charAt(0).toUpperCase() + user.name.slice(1)}</span>!</h2>
+          <p className="text-p"><span> <i class="fa-solid fa-envelope"></i></span> : {user.email} </p>
+          <p className="text-p"><span>Role</span> : {user.role} </p>
+          <br></br>
+          <img className="user-profile-pic" src ={user.userPicture} alt={user.name} />
+          <div className="upload" >
+            <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
+          </div>
+        </div>
+        <br></br>
+        <div className="family-container">
+        <p className="text-p">You are part of the <span className="convert-to-red">{family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)}</span>'s family </p>
+          <p className="text-p">Family code: <span className="convert-to-red">{family.familyCode} </span></p>
+          <p className="text-p"><b>Send this code to your family members!</b></p>
+          <br></br>
+          <p className="text-p">These are the members of your family: </p>
+          <div className="family-members-container">
+            {familyMember.map((eachFamilyMember, index) => {
+              return (
+                <FamilyMember
+                  key={eachFamilyMember._id}
+                  img={eachFamilyMember.userPicture}
+                  name={eachFamilyMember.name}
+                  age={eachFamilyMember.age}
+                  role={eachFamilyMember.role}
+                />)
+            })
+            }
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-    )
-      }
+    </>
+  )
+}
 export default ProfilePage;

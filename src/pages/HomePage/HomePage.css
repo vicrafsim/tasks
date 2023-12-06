@@ -4,6 +4,17 @@
 }
 .task-container{
     margin-top: 20px;
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.homepage-upper-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
 }
 /* .family-member-card {
     background-color: blue;
@@ -24,10 +35,27 @@
     justify-content: center;
     gap:20px;
 } */
-.new-task{
+.add-task{
     border-radius: 50%;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0);
-    font-size: 50px;
+    color: #593EFF;
+    background-color: transparent;
+    font-size: 60px;
     padding: 0 5px;
+}
+
+
+
+@media only screen and (min-width:400px) { 
+	.body-homepage{
+        width: 900px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .task-container{
+        margin-top: 20px;
+        width: 800px;
+    }
 }

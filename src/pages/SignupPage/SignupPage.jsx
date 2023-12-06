@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import Footer from "../../components/Footer/Footer";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -22,31 +23,14 @@ function SignupPage() {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     let role;
-    console.log(role);
     Number(age) > 18 ? role = "Parent" : role = "Child";
-    // Create an object representing the request body
     const requestBody = { email, password, name, role, age: Number(age) };
-    console.log(requestBody);
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
-
-    // Or using a service
     authService
       .signup(requestBody)
       .then((response) => {
-        // If the POST request is successful redirect to the login page
         navigate("/login");
       })
       .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
@@ -55,48 +39,21 @@ function SignupPage() {
   return (
     <div className="signup-page">
       <h1>Sign Up</h1>
-
       <form className="form-container" onSubmit={handleSignupSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        <input className="input" type="email" name="email" value={email} onChange={handleEmail} />
         <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
+        <input className="input" type="password" name="password" value={password} onChange={handlePassword} />
         <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        {/*         <label>Upload Photo:</label>
-        <input type='file' name="userPicture" value={name} onChange={handlePic} /> */}
-
+        <input className="input" type="text" name="name" value={name} onChange={handleName} />
         <label>Age:</label>
-        <input type='number' name="age" value={age} onChange={handleAge} />
-
-
-        {/*          <label>Role:</label>
-        <select type='text' name="role" value={role} onChange={handleRole}>
-          {
-            (age < 18) ? <option value="Child">Child</option>
-            :
-            <option value="Parent">Parent</option>
-          }
-         
-          </select>  */}
-
-
-
-        <button type="submit" className="btn-navbar"><i class="fa-solid fa-door-open"></i></button>
+        <input className="input" type='number' name="age" value={age} onChange={handleAge} />
+        <button type="submit" className="btn-icon"><i class="fa-solid fa-user-plus"></i></button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
+      <p className="text-p">Already have account?</p>
       <Link to={"/login"}> Login</Link>
+      <Footer/>
     </div>
   );
 }

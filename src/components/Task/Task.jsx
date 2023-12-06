@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 
 function Task(props) {
-  const { family } = useContext(AuthContext);
+  const { family, user } = useContext(AuthContext);
   const [taskIsDone, setTaskIsDone] = useState(props.taskIsDone)
   const [deleteTask, setDeleteTask] = useState([])
   const [familyMember, setfamilyMember] = useState([])
@@ -55,6 +55,7 @@ function Task(props) {
         body: JSON.stringify({ taskIsDone })
       })
       const getTaskIsDone = await taskIsDoneResponse.json()
+      props.getTasks()
       //setTaskIsDone(getTaskIsDone)
     } catch (error) { console.log("this is the error taskIsDone: ", error); }
   }
@@ -67,18 +68,24 @@ function Task(props) {
 
   return (
     <div className="task">
-      <p className="description">{props.taskDescription}</p>
-      <p className="time">{props.taskTime}</p>
-      <p className="weekday">{props.taskWeekDay}</p>
-      <input type="checkbox" checked={taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
+      <input className="checkbox" type="checkbox" checked={props.taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
+      <span>|</span>
+      <p className="text-p"><b>{props.taskDescription.charAt(0).toUpperCase()+props.taskDescription.slice(1)}</b></p>
+      <span>|</span>
+      <p className="text-p">{props.taskTime}</p>
+      <span>|</span>
+      <p className="text-p">{props.taskAssignedTo.name}</p>
 
-      <button onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
-
-
-
-
+      
+      {//user.role === "Parent" &&
+      <>
+      <span>|</span>
+      <button class="btn-icon" onClick={() => findDeleteTask(props.taskId)}><span><i class="fa-regular fa-trash-can"></i></span></button>
+      </>
+      }
       <p>{props.taskComments}</p>
-    </div>)
+    </div>
+    )
 }
 export default Task
 

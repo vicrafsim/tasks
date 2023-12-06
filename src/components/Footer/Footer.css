@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.footer{
+    margin-top: 150px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.names{
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+    cursor: pointer;
+    color: #593EFF;
+}
+.fa-github{
+    margin-right: 10px;
+    color: #09cc85;
+}

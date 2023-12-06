@@ -4,7 +4,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    width: 90%;
+    width: 330px;
+    background-color:#F9F4FF;
+    padding: 30px;
+    border-radius: 30px;
 }
 .select-createtask{
     font-size: 17px;
@@ -24,9 +27,27 @@
     font-size: 50px;
     padding: 0 5px;
 }
-input{
-    background-color: rgb(124, 100, 234);
-    border: none; 
+
+
+.input-create-task {
+    background-color: #09CC85;
+    border: none;
     padding: 10px;
     border-radius: 10px;
+    width: 85%;
+    margin-bottom: 20px;
+  }
+.task-title{
+    color: #FF6C52;
+    font-size: 30px;
+
+}
+
+@media only screen and (min-width:400px) { 
+	.form-createtask-container{
+        display: flex;
+        width: 100%;
+
+    }
+
 }
