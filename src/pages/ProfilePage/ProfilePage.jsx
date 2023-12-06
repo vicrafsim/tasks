@@ -39,19 +39,22 @@ function ProfilePage() {
       <Navbar />
       <div className="form-createtask-container">
         <div className="user-profile-container">
-          <h2 className="text-h2">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
+          <h2 className="text-h2">Hello <span className="convert-to-red">{user.name.charAt(0).toUpperCase() + user.name.slice(1)}</span>!</h2>
           <p className="text-p"><span> <i class="fa-solid fa-envelope"></i></span> : {user.email} </p>
-          <p className="text-p"><span><i class="fa-solid fa-poo"></i></span> : {user.role} </p>
-          <img src={user.userPicture} alt={user.name} />
+          <p className="text-p"><span>Role</span> : {user.role} </p>
+          <br></br>
+          <img className="user-profile-pic" src ={user.userPicture} alt={user.name} />
           <div className="upload" >
             <form> <input onChange={(e) => handleFileUpload(e)} type="file" />  </form>
           </div>
         </div>
+        <br></br>
         <div className="family-container">
-          <p className="text-p">{family.familyName} Secret Code: {family.familyCode} </p>
-          <p className="text-p">Send this code to join new member</p>
-          {<img src={family.familyPicture} alt="Family" />}
-          <p className="text-p">Your {family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)} parents: </p>
+        <p className="text-p">You are part of the <span className="convert-to-red">{family.familyName.charAt(0).toUpperCase() + family.familyName.slice(1)}</span>'s family </p>
+          <p className="text-p">Family code: <span className="convert-to-red">{family.familyCode} </span></p>
+          <p className="text-p"><b>Send this code to your family members!</b></p>
+          <br></br>
+          <p className="text-p">These are the members of your family: </p>
           <div className="family-members-container">
             {familyMember.map((eachFamilyMember, index) => {
               return (
