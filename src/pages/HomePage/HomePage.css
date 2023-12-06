@@ -4,6 +4,10 @@
 }
 .task-container{
     margin-top: 20px;
+    width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .homepage-upper-container{
     display: flex;
