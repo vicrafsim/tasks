@@ -12,6 +12,10 @@
 span{
     margin: 0 2px;
 }
+.checkbox{
+    width: 20px;
+    height: 30px;
+}
 /*.task:hover{
     background-color: rgb(65, 25, 125);
     box-shadow: 0px 1px 2px 1px rgba(163, 105, 250, 0.556);
