@@ -1,23 +1,80 @@
-# Project 3: Full Stack Web App
+# `Kiddie Tasks Heroes!!`
 
-This is the initial setup for project 3.
+`Kiddie Tasks Heroes` is a super cool web app designed to help all members of a certain family manage their tasks. It is specifically tailored for children, aiming to teach them about family responsibilities!
 
-Fork this repository to your org account, then clone it to your local machine.
-The rest of the team will clone the forked repository to their local machines as well.
+## Users: are you a `parent` or a `child`?
 
-## Setup dotenv
-Once you have cloned the repository, create a `.env` file in the root of the project.
-Add the following to the `.env` with your infomration:
-```
-VITE_SERVER_URL=http://localhost:5005
-```
-Vite uses this variable naming convention. The `VITE_` prefix is required. Make sure that the url for the server matches the port that you are using for your it.
+There are two types of app users: `parent` and `child`.
+A person who is 18 years or older is considered a parent.
+While parents have access to all application features, children have access only to a subset of them.
 
-Remember to update this readme file with your project description and routes.
+A parent can create a new family and create or delete a task.
 
-## Routes table example
+Both parents and children can join an existing family, check a task when it's done, and edit their profile.
 
-| Component | Path | Description |
-|--------|------|-------------|
-| UsersPage | /users | Display all the users|
-| UserDetails | /users/:id | Sends back a single user object |
+Upon signing up and logging in for the first time, users are prompted to choose whether they want to create a family (parent) or join an existing family (child or parent). Each user belongs to only one family.
+
+Once you create a new family, a random code is assigned to the family. This code is necessary for other members of the family to access it. The family code is displayed in the user profile.
+
+## TASKS `TASKS` TASK!
+
+The Homepage of the App shows the tasks of the family of the specific current week day. You have two buttoms that allows you to move throught the week days and check the task of the next days or previous ones. 
+
+## ...and other `features`
+
+The Navbar allows you to access your profile page, where you can find information about yourself, your family, and your family members. This is where you can edit your profile pictures. Additionally, you can access a page that shows your personal scores and the scores of your family.
+
+## ROUTES
+
+| Path                        | Components               | Permissions            | Get/Post | Behavior                                                   |
+|-----------------------------|--------------------------|-------------------------|----------|------------------------------------------------------------|
+| /                           | HomePage                 | logged                  | get      |                                                            |
+| /signup                     | SignupPage               | all permission         | post     |                                                            |
+| /login                      | LoginPage                | logged                  | post     |                                                            |
+| /verify                     | VerifyPage               | logged                  | get      |                                                            |
+|                             |                          |                         |          |                                                            |
+| **Task Routes**            |                          |                         |          |                                                            |
+| /createtask                 | CreatePage               | logged/onlyParent       | post     | To create a new task for a family and assign for a specific person |
+| /task                       | CreateTaskPage           | logged                  | post     | Display the task on the Home Page                           |
+| /tasks/:_id/tasksByFamily   |                          | logged                  | get      | Assign task for the Family that created a task              |
+| /tasks/:_id/:dayName        |                          | logged                  | get      | Show only the tasks of the day                              |
+| /deletetask/:_id            | Task                     | logged/onlyParent       | delete   | Delete a task that is already done                          |
+| /taskisdone/:_id            | Task                     | logged                  |          | Check if the task is done or not                            |
+|                             |                          |                         |          |                                                            |
+| **User Routes**            |                          |                         |          |                                                            |
+| /uploaduserpicture          | UpLoadUserPicture        | logged                  | post     | All users can change their photo                            |
+|                             |                          |                         |          |                                                            |
+| **Family Routes**          |                          |                         |          |                                                            |
+| /create                     | CreateFamily             | logged                  | post     | When you join our Application, you can create a "New Family" |
+| /join                       | CreateFamily             | logged                  | post     | You can join a "Family"                                     |
+| /familymembers/:_id         | CreateFamily             | logged                  | get      |                                                            |
+
+
+## About us
+
+We are Rafa from Brazil, Simone from Italy, and Victor from Spain. We met at a Full Stack Development program at Ironhack. Throughout this Boot Camp, we learned a so much about web development, and now we are excited to present our final project!
+
+You can find us on LinkedIn and GitHub:
+
+Rafa’s profiles:
+https://github.com/Rgerotto
+https://www.linkedin.com/in/rafael-gerotto-coelho-b4244120a/
+
+Simo’s profiles:
+https://github.com/simozan
+https://www.linkedin.com/in/simone-zanni-4389478b
+
+Victor’s profiles:
+
+
+## Made in:
+React
+JavaScript
+CSS
+MongoDB
+Node.js
+Express
+
+## Dependencies:
+Axios
+Cloudinary
