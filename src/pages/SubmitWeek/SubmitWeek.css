@@ -3,7 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: auto;
     width: 100%;
-    background-color: aqua;
+}
+.img{
+    width: 100px;
+    margin: 20px 0;
+}
+.icon{
+    color: #ff6c52;
+    margin-right: 4px;
 }
