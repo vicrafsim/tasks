@@ -34,8 +34,10 @@
     border: none;
     padding: 10px;
     border-radius: 10px;
+    height: 45px;
     width: 85%;
     margin-bottom: 20px;
+    color: white;
   }
 .task-title{
     color: #FF6C52;
