@@ -3,14 +3,13 @@
     padding: 0;
 }
 .footer{
-    margin: 10px 0;
+    margin-top: 150px;
     height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(213, 213, 255);
 }
 .names{
     display: flex;
@@ -19,7 +18,9 @@
     align-items: center;
     margin-bottom: 6px;
     cursor: pointer;
+    color: #593EFF;
 }
 .fa-github{
     margin-right: 10px;
+    color: #09cc85;
 }
