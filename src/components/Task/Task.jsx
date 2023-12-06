@@ -70,11 +70,11 @@ function Task(props) {
     <div className="task">
       <input className="checkbox" type="checkbox" checked={props.taskIsDone} name="taskisdone" onChange={(event) => handleChange(event)} />
       <span>|</span>
-      <p className="text-p"><b>{props.taskDescription.charAt(0).toUpperCase()+props.taskDescription.slice(1)}</b></p>
+      <p className="text-p text-center"><b>{props.taskDescription.charAt(0).toUpperCase()+props.taskDescription.slice(1)}</b></p>
       <span>|</span>
-      <p className="text-p">{props.taskTime}</p>
+      <p className="text-p text-center">{props.taskTime}</p>
       <span>|</span>
-      <p className="text-p">{props.taskAssignedTo.name}</p>
+      <p className="text-p text-center">{props.taskAssignedTo.name}</p>
 
       
       {//user.role === "Parent" &&

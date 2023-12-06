@@ -55,7 +55,7 @@ button:focus-visible {
   font-size: 30px;
 }
 .text-p{
-  font-size: 12px;
+  font-size: 14px;
   color: #593EFF;
 }
 .convert-to-red{
@@ -101,4 +101,7 @@ button:focus-visible {
     color: #593EFF;
     font-size: 24px;
   }
+}
+.text-center{
+  text-align: center;
 }

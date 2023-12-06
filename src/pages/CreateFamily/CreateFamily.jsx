@@ -56,7 +56,8 @@ function CreateFamily() {
             <Navbar />
             <div className="form-createtask-container">
             <h2 className="text-h2">Hello {user.name.charAt(0).toUpperCase() + user.name.slice(1)}!</h2>
-            <h3 className="text-h3">Welcome to <span className="convert-to-red">Kiddie Tasks Heroes</span>!</h3>
+            <h3 className="text-h3">Welcome to </h3>
+            <h3><span className="convert-to-red">Kiddie Tasks Heroes</span>!</h3>
 
             <h3 className="text-h3 space">Now you can:</h3>
 
