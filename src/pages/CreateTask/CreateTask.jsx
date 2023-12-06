@@ -54,47 +54,51 @@ function CreateTask() {
 
     return (
         <>
-        <Navbar/>        <form className="form-createtask-container" onSubmit={handleSubmitTask}>
-            <h2 className="text-h2">NEW TASK</h2>
-            <input className="input-create-task" placeholder="Name of the task" name="description" required onChange={handleTaskDescription}>
-            </input>
-
-            <select className="input-create-task" name="timingInterval" onChange={handleTaskTime}>
-                <option value="Time interval">Time interval</option>
-                <option value="On Wake Up">On Wake Up</option>
-                <option value="Before Breakfast">Before Breakfast</option>
-                <option value="After Breakfast">After Breakfast</option>
-                <option value="Before Lunch">Before Lunch</option>
-                <option value="After Lunch">After Lunch</option>
-                <option value="In the afternoon">In the Afternoon</option>
-                <option value="Before Dinner">Before Dinner</option>
-                <option value="After Dinner">After Dinner</option>
-                <option value="Before Sleep">Before Sleep</option>
-            </select>
-            <select className="input-create-task" id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
-                <option value="Everyday">Day of the week</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-            </select>
-            <select className="input-create-task" name="personAssigned" onChange={handleTaskAssignedTo}>
-                <option value="empty">Family member</option>
-                {familyMember?.map((eachFamilyMember, index) => {
-                    return (
-                        <option value={eachFamilyMember._id}>
-                            {eachFamilyMember.name}
-                        </option>
-                    )
-                })
-                }
-            </select>
-            <br></br>
-            <button type="submit" className="add-task"><i class="fa-solid fa-circle-plus"></i></button>
-        </form>
+            <Navbar />        <form className="form-createtask-container" onSubmit={handleSubmitTask}>
+                <h2 className=" text-h2, convert-to-red">NEW TASK</h2>
+                <br></br>
+                <p>Name of the task</p>
+                <input className="input-create-task" name="description" required onChange={handleTaskDescription}>
+                </input>
+                <p>Time interval</p>
+                <select className="input-create-task" name="timingInterval" onChange={handleTaskTime}>
+                    <option value="Time interval"></option>
+                    <option value="On Wake Up">On Wake Up</option>
+                    <option value="Before Breakfast">Before Breakfast</option>
+                    <option value="After Breakfast">After Breakfast</option>
+                    <option value="Before Lunch">Before Lunch</option>
+                    <option value="After Lunch">After Lunch</option>
+                    <option value="In the afternoon">In the Afternoon</option>
+                    <option value="Before Dinner">Before Dinner</option>
+                    <option value="After Dinner">After Dinner</option>
+                    <option value="Before Sleep">Before Sleep</option>
+                </select>
+                <p>Day of the week</p>
+                <select className="input-create-task" id="day-moment" name="dayMoment" onChange={handleTaskWeekDay}>
+                    <option value="Everyday"></option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+                <p>Family member</p>
+                <select className="input-create-task" name="personAssigned" onChange={handleTaskAssignedTo}>
+                    <option value="empty"></option>
+                    {familyMember?.map((eachFamilyMember, index) => {
+                        return (
+                            <option value={eachFamilyMember._id}>
+                                {eachFamilyMember.name}
+                            </option>
+                        )
+                    })
+                    }
+                </select>
+                <br></br>
+                <button type="submit" className="add-task"><i class="fa-solid fa-circle-plus"></i></button>
+            </form>
         </>
     );
 
