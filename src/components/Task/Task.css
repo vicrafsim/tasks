@@ -1,5 +1,5 @@
 .task{
-    background-color:#F9F4FF;
+    background-color:#09cc85;
     padding: 10px;
     width: 100%;
     border: none;
@@ -18,3 +18,18 @@ span{
     color: rgb(255, 255, 255);
     border: none;
 }*/
+
+@media only screen and (min-width:25em){
+    .task{
+        background-color:#09cc85;
+        padding: 10px;
+        width: 90%;
+        border: none;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+}
