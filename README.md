@@ -65,6 +65,8 @@ https://github.com/simozan
 https://www.linkedin.com/in/simone-zanni-4389478b
 
 Victor’s profiles:
+https://github.com/BittorChestnuts
+https://www.linkedin.com/in/victorcastanos/
 
 
 ## Made in:
