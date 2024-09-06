@@ -14,7 +14,7 @@ function CreateFamily() {
 
     const familySubmit = async (event) => {
         event.preventDefault()
-        console.log("createFamily page: ", familyName)
+        //console.log("createFamily page: ", familyName)
 
         try {
             const family = await fetch(`${import.meta.env.VITE_SERVER_URL}/family/create`, {
@@ -66,14 +66,11 @@ function CreateFamily() {
                 <form onSubmit={familySubmit} className="form-container">
                     <h3 className="text-h3">Create a new family:</h3>
                     <input className="input" type="text" placeholder="Type your family name" name="familyName" onChange={(event) => setFamilyName(event.target.value)} />
-
-                    {/*             <label htmlFor="familyPicture">family pic</label>
-            <input type="text" /> */}
                     <button className="btn-icon1"><i class="fa-solid fa-people-group"></i></button>
 
                 </form>
             }
-            {/* create a new form for the user to be part os a family */}
+            
             <br></br>
             <form onSubmit={joinFamily} className="form-container">
                 <label htmlFor=""></label>
