@@ -11,20 +11,20 @@ import Permission from "./pages/Permission/Permission";
 import CreateTask from "./pages/CreateTask/CreateTask";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import SubmitWeek from"./pages/SubmitWeek/SubmitWeek";
+import SubmitWeek from "./pages/SubmitWeek/SubmitWeek";
 
 
 function App() {
   return (
     <div className="App">
-      
+
       <Routes>
-      
+
         <Route
           path="/"
           element={
             <IsPrivate>
-              <HomePage/>
+              <HomePage />
             </IsPrivate>
           }
         />
@@ -80,7 +80,7 @@ function App() {
             </IsPrivate>
           }
         />
-         <Route
+        <Route
           path="/submitweek"
           element={
             <IsPrivate>
